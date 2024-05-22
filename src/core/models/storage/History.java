@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package calculator;
+package core.models.storage;
 
+import core.models.Operation;
 import java.util.ArrayList;
 
-/**
- *
- * @author edangulo
- */
 public class History {
     
     private ArrayList<Operation> operations;
