@@ -36,16 +36,20 @@ public class SubstractController {
                 return new Response("Number 2 must be numeric", Status.BAD_REQUEST);
             }
 
-            String a[] = number1.split(".");
+            String a[] = number1.split("\\.");
+            if (a.length > 1) {
 
-            if (a[1].length() > 3) {
-                return new Response("Number 1 must have at most 3 decimals", Status.BAD_REQUEST);
+                if (a[1].length() > 3) {
+                    return new Response("Number 1 must have at most 3 decimals", Status.BAD_REQUEST);
+                }
             }
 
-            String b[] = number2.split(".");
+            String b[] = number2.split("\\.");
 
-            if (b[1].length() > 3) {
-                return new Response("Number 2 must have at most 3 decimals", Status.BAD_REQUEST);
+            if (b.length > 1) {
+                if (b[1].length() > 3) {
+                    return new Response("Number 2 must have at most 3 decimals", Status.BAD_REQUEST);
+                }
             }
 
             History history = History.getInstance();
@@ -54,7 +58,7 @@ public class SubstractController {
             
             history.addOperation(op);
             
-            return new Response("Operation Succesfully", Status.OK, result);
+            return new Response("Operation Succesfully", Status.OK, result.replace(",","."));
 
         } catch (Exception e) {
             return new Response("Unexpected error", Status.INTERNAL_SERVER_ERROR);

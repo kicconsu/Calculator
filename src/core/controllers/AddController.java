@@ -37,7 +37,6 @@ public class AddController {
             }
 
             String a[] = number1.split("\\.");
-            System.out.println(a.length);
             if (a.length > 1) {
 
                 if (a[1].length() > 3) {
@@ -58,8 +57,9 @@ public class AddController {
             String result = formatter.format(op.getResult());
 
             history.addOperation(op);
-
-            return new Response("Operated Succesfully", Status.OK, result);
+            
+            return new Response("Operated Succesfully", Status.OK, result.replace(",","."));
+            
 
         } catch (Exception e) {
             e.printStackTrace();
