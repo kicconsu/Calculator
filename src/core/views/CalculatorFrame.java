@@ -4,6 +4,7 @@ import core.controllers.*;
 import core.controllers.utils.Response;
 
 import javax.swing.JOptionPane;
+import javax.swing.ListModel;
 
 public class CalculatorFrame extends javax.swing.JFrame {
 
@@ -210,7 +211,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
             
             fn1.setText("");
             fn2.setText("");
-            fresult.setText(res.getResult());
+            fresult.setText((String) res.getObject());
             
         }
         
@@ -234,7 +235,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
             
             fn1.setText("");
             fn2.setText("");
-            fresult.setText(res.getResult());
+            fresult.setText((String) res.getObject());
             
         }
     }//GEN-LAST:event_bSubstractActionPerformed
@@ -257,7 +258,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
             
             fn1.setText("");
             fn2.setText("");
-            fresult.setText(res.getResult());
+            fresult.setText((String) res.getObject());
             
         }
     }//GEN-LAST:event_bMultActionPerformed
@@ -280,7 +281,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
             
             fn1.setText("");
             fn2.setText("");
-            fresult.setText(res.getResult());
+            fresult.setText((String) res.getObject());
             
         }
     }//GEN-LAST:event_bDivideActionPerformed
@@ -306,7 +307,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, history.getMessage(), "Error " + history.getStatus(), JOptionPane.WARNING_MESSAGE);
         } else {
 
-            fresult.setText(history.getHistoryList());
+            aDisplay.setModel((ListModel<String>) history.getObject());
             
         }
         
