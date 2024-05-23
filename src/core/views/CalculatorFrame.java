@@ -199,7 +199,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         String number2 = fn2.getText();
         
         //Invoke controller, get response
-        Response res = AddController.operate(number1, number2);
+        Response res = AddController.createOperation(number1, number2);
         
         //Display response!
         if (res.getStatus() >= 500) {
@@ -223,7 +223,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         String number2 = fn2.getText();
         
         //Invoke controller, get response
-        Response res = SubstractController.operate(number1, number2);
+        Response res = SubstractController.createOperation(number1, number2);
         
         //Display response!
         if (res.getStatus() >= 500) {
@@ -246,7 +246,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         String number2 = fn2.getText();
         
         //Invoke controller, get response
-        Response res = MultiplyController.operate(number1, number2);
+        Response res = MultiplyController.createOperation(number1, number2);
         
         //Display response!
         if (res.getStatus() >= 500) {
@@ -269,7 +269,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
         String number2 = fn2.getText();
         
         //Invoke controller, get response
-        Response res = DivideController.operate(number1, number2);
+        Response res = DivideController.createOperation(number1, number2);
         
         //Display response!
         if (res.getStatus() >= 500) {

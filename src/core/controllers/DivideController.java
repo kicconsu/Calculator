@@ -4,6 +4,7 @@ import core.controllers.utils.Response;
 import core.controllers.utils.Status;
 import core.models.Divide;
 import core.models.Operation;
+import core.models.storage.History;
 import java.text.DecimalFormat;
 
 
