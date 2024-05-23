@@ -7,7 +7,7 @@ public abstract class Operation {
     protected String operator;
     protected double result;
 
-    public Operation(double number1, double number2, String operator, double result) {
+    public Operation(double number1, double number2, String operator) {
         this.number1 = number1;
         this.number2 = number2;
         this.operator = operator;
