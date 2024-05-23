@@ -1,20 +1,13 @@
 package core.views;
 
-import core.models.Calculator;
-import core.models.storage.History;
-import core.models.Operation;
-import java.util.ArrayList;
-import java.util.Collections;
-import javax.swing.DefaultListModel;
+import core.controllers.*;
+import core.controllers.utils.Response;
+
 import javax.swing.JOptionPane;
 
 public class CalculatorFrame extends javax.swing.JFrame {
-    
-    private History history;
-
 
     public CalculatorFrame() {
-        this.history = new History();
         initComponents();
     }
 
@@ -199,93 +192,124 @@ public class CalculatorFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAddActionPerformed
-        // TODO add your handling code here:
-        try {
-            Calculator calculator = new Calculator();
+        
+        //Get input data
+        String number1 = fn1.getText();
+        String number2 = fn2.getText();
+        
+        //Invoke controller, get response
+        Response res = AddController.operate(number1, number2);
+        
+        //Display response!
+        if (res.getStatus() >= 500) {
+            JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.ERROR_MESSAGE);
+        } else if (res.getStatus() >= 400) {
+            JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, res.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
             
-            double number1 = Double.parseDouble(fn1.getText());
-            double number2 = Double.parseDouble(fn2.getText());
-            double result = calculator.add(number1, number2);
+            fn1.setText("");
+            fn2.setText("");
+            fresult.setText(res.getResult());
             
-            this.history.addOperation(new Operation(number1, number2, "+", result));
-            
-            fresult.setText("" + result);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        
     }//GEN-LAST:event_bAddActionPerformed
 
     private void bSubstractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSubstractActionPerformed
-        // TODO add your handling code here:
-        try {
-            Calculator calculator = new Calculator();
+        //Get input data
+        String number1 = fn1.getText();
+        String number2 = fn2.getText();
+        
+        //Invoke controller, get response
+        Response res = SubstractController.operate(number1, number2);
+        
+        //Display response!
+        if (res.getStatus() >= 500) {
+            JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.ERROR_MESSAGE);
+        } else if (res.getStatus() >= 400) {
+            JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, res.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
             
-            double number1 = Double.parseDouble(fn1.getText());
-            double number2 = Double.parseDouble(fn2.getText());
-            double result = calculator.subtract(number1, number2);
+            fn1.setText("");
+            fn2.setText("");
+            fresult.setText(res.getResult());
             
-            this.history.addOperation(new Operation(number1, number2, "-", result));
-            
-            fresult.setText("" + result);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_bSubstractActionPerformed
 
     private void bMultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMultActionPerformed
-        // TODO add your handling code here:
-        try {
-            Calculator calculator = new Calculator();
+        //Get input data
+        String number1 = fn1.getText();
+        String number2 = fn2.getText();
+        
+        //Invoke controller, get response
+        Response res = MultiplyController.operate(number1, number2);
+        
+        //Display response!
+        if (res.getStatus() >= 500) {
+            JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.ERROR_MESSAGE);
+        } else if (res.getStatus() >= 400) {
+            JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, res.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
             
-            double number1 = Double.parseDouble(fn1.getText());
-            double number2 = Double.parseDouble(fn2.getText());
-            double result = calculator.multiply(number1, number2);
+            fn1.setText("");
+            fn2.setText("");
+            fresult.setText(res.getResult());
             
-            this.history.addOperation(new Operation(number1, number2, "*", result));
-            
-            fresult.setText("" + result);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_bMultActionPerformed
 
     private void bDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDivideActionPerformed
-        // TODO add your handling code here:
-        try {
-            Calculator calculator = new Calculator();
+        //Get input data
+        String number1 = fn1.getText();
+        String number2 = fn2.getText();
+        
+        //Invoke controller, get response
+        Response res = DivideController.operate(number1, number2);
+        
+        //Display response!
+        if (res.getStatus() >= 500) {
+            JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.ERROR_MESSAGE);
+        } else if (res.getStatus() >= 400) {
+            JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, res.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
             
-            double number1 = Double.parseDouble(fn1.getText());
-            double number2 = Double.parseDouble(fn2.getText());
-            double result = calculator.divide(number1, number2);
+            fn1.setText("");
+            fn2.setText("");
+            fresult.setText(res.getResult());
             
-            this.history.addOperation(new Operation(number1, number2, "/", result));
-            
-            fresult.setText("" + result);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_bDivideActionPerformed
 
     private void bPotencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPotencyActionPerformed
-        // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Not Implemented", "Error", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_bPotencyActionPerformed
 
     private void bClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bClearActionPerformed
-        // TODO add your handling code here:
         fn1.setText("");
         fn2.setText("");
         fresult.setText("");
     }//GEN-LAST:event_bClearActionPerformed
 
     private void bHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHistoryActionPerformed
-        // TODO add your handling code here:
-        ArrayList<Operation> operationHistory = this.history.getOperations();
-        Collections.reverse(this.history.getOperations());
+        //Invoke controller, get response
+        Response history = HistoryController.getHistory();
         
-        DefaultListModel model = new DefaultListModel();
-        model.addAll(operationHistory);
-        aDisplay.setModel(model);
+        //Display response!
+        if (history.getStatus() >= 500) {
+            JOptionPane.showMessageDialog(null, history.getMessage(), "Error " + history.getStatus(), JOptionPane.ERROR_MESSAGE);
+        } else if (history.getStatus() >= 400) {
+            JOptionPane.showMessageDialog(null, history.getMessage(), "Error " + history.getStatus(), JOptionPane.WARNING_MESSAGE);
+        } else {
+
+            fresult.setText(history.getHistoryList());
+            
+        }
+        
     }//GEN-LAST:event_bHistoryActionPerformed
 
 
