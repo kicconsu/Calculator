@@ -207,7 +207,6 @@ public class CalculatorFrame extends javax.swing.JFrame {
         } else if (res.getStatus() >= 400) {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, res.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
             
             fn1.setText("");
             fn2.setText("");
@@ -231,7 +230,6 @@ public class CalculatorFrame extends javax.swing.JFrame {
         } else if (res.getStatus() >= 400) {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, res.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
             
             fn1.setText("");
             fn2.setText("");
@@ -254,7 +252,6 @@ public class CalculatorFrame extends javax.swing.JFrame {
         } else if (res.getStatus() >= 400) {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, res.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
             
             fn1.setText("");
             fn2.setText("");
@@ -276,8 +273,7 @@ public class CalculatorFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.ERROR_MESSAGE);
         } else if (res.getStatus() >= 400) {
             JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.WARNING_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null, res.getMessage(), "Response Message", JOptionPane.INFORMATION_MESSAGE);
+        } else {     
             
             fn1.setText("");
             fn2.setText("");

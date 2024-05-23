@@ -58,7 +58,7 @@ public class DivideController {
 
             history.addOperation(op);
 
-            return new Response("Operation Succesfully", Status.OK, result.replace(",", "."));
+            return new Response("Operated Succesfully", Status.OK, result.replace(",", "."));
 
         } catch (Exception e) {
 
