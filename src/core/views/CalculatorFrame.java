@@ -283,7 +283,25 @@ public class CalculatorFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_bDivideActionPerformed
 
     private void bPotencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPotencyActionPerformed
-        JOptionPane.showMessageDialog(null, "Not Implemented", "Error", JOptionPane.ERROR_MESSAGE);
+         //Get input data
+        String number1 = fn1.getText();
+        String number2 = fn2.getText();
+        
+        //Invoke controller, get response
+        Response res = PotencyController.createOperation(number1, number2);
+        
+        //Display response!
+        if (res.getStatus() >= 500) {
+            JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.ERROR_MESSAGE);
+        } else if (res.getStatus() >= 400) {
+            JOptionPane.showMessageDialog(null, res.getMessage(), "Error " + res.getStatus(), JOptionPane.WARNING_MESSAGE);
+        } else {     
+            
+            fn1.setText("");
+            fn2.setText("");
+            fresult.setText((String) res.getObject());
+            
+        }
     }//GEN-LAST:event_bPotencyActionPerformed
 
     private void bClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bClearActionPerformed
